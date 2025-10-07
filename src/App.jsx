@@ -15,9 +15,14 @@ function App() {
     <Router>
       <AuthProvider>
         <IdeaProvider>
-          <div className="flex flex-col min-h-screen bg-gray-50">
-            <Header />
-            <main className="flex-grow">
+          <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+            {/* Sticky Header */}
+            <header className="sticky top-0 z-50 shadow bg-white/80 backdrop-blur-md">
+              <Header />
+            </header>
+
+            {/* Main Content */}
+            <main className="flex-grow container mx-auto px-4 py-6">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
@@ -27,7 +32,11 @@ function App() {
                 <Route path="/profile/:username" element={<UserProfilePage />} />
               </Routes>
             </main>
-            <Footer />
+
+            {/* Footer */}
+            <footer className="mt-auto border-t bg-gray-100">
+              <Footer />
+            </footer>
           </div>
         </IdeaProvider>
       </AuthProvider>
